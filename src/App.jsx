@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import GloabalStyles from "./styles/GlobalStyles";
 import Login from "./pages/Login";
 import { DarkModeProvider } from "./context/DarkModeContext";
+import AppLayout from "./ui/AppLayout";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,6 +24,7 @@ function App() {
         <GloabalStyles />
         <BrowserRouter>
           <Routes>
+            <Route path="/" element={<AppLayout />}></Route>
             <Route path="login" element={<Login />} />
           </Routes>
         </BrowserRouter>
