@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
@@ -7,6 +7,7 @@ import GloabalStyles from "./styles/GlobalStyles";
 import Login from "./pages/Login";
 import { DarkModeProvider } from "./context/DarkModeContext";
 import AppLayout from "./ui/AppLayout";
+import Dashboard from "./pages/Dashboard";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,7 +25,10 @@ function App() {
         <GloabalStyles />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<AppLayout />}></Route>
+            <Route element={<AppLayout />}>
+              <Route index element={<Navigate replace to="dashboard" />} />
+              <Route path="dashboard" element={<Dashboard />} />
+            </Route>
             <Route path="login" element={<Login />} />
           </Routes>
         </BrowserRouter>
