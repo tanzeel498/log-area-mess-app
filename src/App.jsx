@@ -8,6 +8,8 @@ import Login from "./pages/Login";
 import { DarkModeProvider } from "./context/DarkModeContext";
 import AppLayout from "./ui/AppLayout";
 import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./ui/ProtectedRoute";
+import GuestRooms from "./pages/GuestRooms";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,9 +27,16 @@ function App() {
         <GloabalStyles />
         <BrowserRouter>
           <Routes>
-            <Route element={<AppLayout />}>
+            <Route
+              element={
+                <ProtectedRoute>
+                  <AppLayout />
+                </ProtectedRoute>
+              }
+            >
               <Route index element={<Navigate replace to="dashboard" />} />
               <Route path="dashboard" element={<Dashboard />} />
+              <Route path="guest-rooms" element={<GuestRooms />} />
             </Route>
             <Route path="login" element={<Login />} />
           </Routes>
