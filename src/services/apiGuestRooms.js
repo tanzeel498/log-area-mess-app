@@ -55,3 +55,17 @@ export async function createUpdateGuestRoom(newGuestRoom, id) {
 
   return data;
 }
+
+export async function deleteGuestRoom(id) {
+  const { data, error } = await supabase
+    .from("guest-rooms")
+    .delete()
+    .eq("id", id);
+
+  if (error) {
+    console.error(error);
+    throw new Error("Guest Room could not be deleted!");
+  }
+
+  return data;
+}
