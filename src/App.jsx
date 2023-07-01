@@ -8,6 +8,9 @@ import Login from "./pages/Login";
 import { DarkModeProvider } from "./context/DarkModeContext";
 import AppLayout from "./ui/AppLayout";
 import Dashboard from "./pages/Dashboard";
+import Booking from "./pages/Booking";
+import Bookings from "./pages/Bookings";
+import CreateBooking from "./pages/CreateBooking";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import GuestRooms from "./pages/GuestRooms";
 
@@ -36,6 +39,9 @@ function App() {
             >
               <Route index element={<Navigate replace to="dashboard" />} />
               <Route path="dashboard" element={<Dashboard />} />
+              <Route path="bookings" element={<Bookings />} />
+              <Route path="bookings/:bookingId" element={<Booking />} />
+              <Route path="create-booking" element={<CreateBooking />} />
               <Route path="guest-rooms" element={<GuestRooms />} />
             </Route>
             <Route path="login" element={<Login />} />
