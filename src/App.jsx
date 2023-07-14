@@ -11,6 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import Booking from "./pages/Booking";
 import Bookings from "./pages/Bookings";
 import CreateBooking from "./pages/CreateBooking";
+import Checkin from "./pages/Checkin";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import GuestRooms from "./pages/GuestRooms";
 
@@ -42,6 +43,7 @@ function App() {
               <Route path="bookings" element={<Bookings />} />
               <Route path="bookings/:bookingId" element={<Booking />} />
               <Route path="create-booking" element={<CreateBooking />} />
+              <Route path="checkin/:bookingId" element={<Checkin />} />
               <Route path="guest-rooms" element={<GuestRooms />} />
             </Route>
             <Route path="login" element={<Login />} />
