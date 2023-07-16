@@ -14,6 +14,7 @@ import CreateBooking from "./pages/CreateBooking";
 import Checkin from "./pages/Checkin";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import GuestRooms from "./pages/GuestRooms";
+import Settings from "./pages/Settings";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -45,6 +46,7 @@ function App() {
               <Route path="create-booking" element={<CreateBooking />} />
               <Route path="checkin/:bookingId" element={<Checkin />} />
               <Route path="guest-rooms" element={<GuestRooms />} />
+              <Route path="settings" element={<Settings />} />
             </Route>
             <Route path="login" element={<Login />} />
           </Routes>
