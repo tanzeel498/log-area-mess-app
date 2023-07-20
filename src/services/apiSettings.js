@@ -9,3 +9,19 @@ export async function getSettings() {
   }
   return data;
 }
+
+// We expect a newSetting object that looks like {setting: newValue}
+export async function updateSetting(newSetting) {
+  const { data, error } = await supabase
+    .from("settings")
+    .update(newSetting)
+    .eq("id", 1)
+    .select();
+
+  if (error) {
+    console.error(error);
+    throw new Error("Settings could not be updated");
+  }
+
+  return data;
+}
