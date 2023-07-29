@@ -72,6 +72,39 @@ export async function updateBooking(id, obj) {
   return data;
 }
 
+export async function checkRoomsAvailability({ startDate, endDate }) {
+  // this will return bookings that exist between startDate and endDate
+  const { data: existingBookings, error } = await supabase
+    .from("bookings")
+    .select("guestRoomId, startDate, endDate")
+    .or(`startDate.gte.${startDate},endDate.lte.${getDayEnd(endDate)}`)
+    .lte("startDate", getDayEnd(endDate))
+    .gte("endDate", startDate);
+
+  if (error) {
+    console.error(error);
+    throw new Error("Checking Availability failed!");
+  }
+
+  const existingGuestRoomIds = existingBookings
+    .map((booking) => booking.guestRoomId)
+    .join(",");
+
+  // postgres accept array like this "(1, 3, 4)"
+  // getting all the guest rooms whose bookings doesn't exist
+  const { data: availableGuestRooms, error: guestRoomsError } = await supabase
+    .from("guest-rooms")
+    .select("id, name, regularPrice, discount")
+    .not("id", "in", `(${existingGuestRoomIds})`);
+
+  if (guestRoomsError) {
+    console.error(error);
+    throw new Error("Checking Availability failed!");
+  }
+
+  return { availableGuestRooms, startDate, endDate };
+}
+
 export async function deleteBooking(id) {
   // REMEMBER RLS POLICIES
   const { data, error } = await supabase.from("bookings").delete().eq("id", id);
