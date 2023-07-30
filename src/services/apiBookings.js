@@ -105,6 +105,21 @@ export async function checkRoomsAvailability({ startDate, endDate }) {
   return { availableGuestRooms, startDate, endDate };
 }
 
+export async function getGuest(serviceNumber) {
+  const { data, error } = await supabase
+    .from("guests")
+    .select("*")
+    .eq("serviceNumber", serviceNumber)
+    .single();
+
+  if (error) {
+    console.error(error);
+    throw new Error("Guest Not found!");
+  }
+
+  return data;
+}
+
 export async function deleteBooking(id) {
   // REMEMBER RLS POLICIES
   const { data, error } = await supabase.from("bookings").delete().eq("id", id);
