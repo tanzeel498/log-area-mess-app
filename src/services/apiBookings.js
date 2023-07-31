@@ -120,6 +120,20 @@ export async function getGuest(serviceNumber) {
   return data;
 }
 
+export async function createGuest(guestData) {
+  const { data, error } = await supabase
+    .from("guests")
+    .insert([guestData])
+    .select();
+
+  if (error) {
+    console.error(error);
+    throw new Error("Guest creation Failed");
+  }
+
+  return data.at(0);
+}
+
 export async function deleteBooking(id) {
   // REMEMBER RLS POLICIES
   const { data, error } = await supabase.from("bookings").delete().eq("id", id);
