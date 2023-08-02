@@ -15,6 +15,7 @@ import Checkin from "./pages/Checkin";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import GuestRooms from "./pages/GuestRooms";
 import Settings from "./pages/Settings";
+import PageNotFound from "./pages/PageNotFound";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -49,6 +50,7 @@ function App() {
               <Route path="settings" element={<Settings />} />
             </Route>
             <Route path="login" element={<Login />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
         <Toaster
