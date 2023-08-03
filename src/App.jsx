@@ -15,6 +15,7 @@ import Checkin from "./pages/Checkin";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import GuestRooms from "./pages/GuestRooms";
 import Settings from "./pages/Settings";
+import Account from "./pages/Account";
 import PageNotFound from "./pages/PageNotFound";
 
 const queryClient = new QueryClient({
@@ -48,6 +49,7 @@ function App() {
               <Route path="checkin/:bookingId" element={<Checkin />} />
               <Route path="guest-rooms" element={<GuestRooms />} />
               <Route path="settings" element={<Settings />} />
+              <Route path="account" element={<Account />} />
             </Route>
             <Route path="login" element={<Login />} />
             <Route path="*" element={<PageNotFound />} />
