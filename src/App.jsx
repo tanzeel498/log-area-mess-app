@@ -12,6 +12,7 @@ import Booking from "./pages/Booking";
 import Bookings from "./pages/Bookings";
 import CreateBooking from "./pages/CreateBooking";
 import Checkin from "./pages/Checkin";
+import Users from "./pages/Users";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import GuestRooms from "./pages/GuestRooms";
 import Settings from "./pages/Settings";
@@ -48,6 +49,7 @@ function App() {
               <Route path="create-booking" element={<CreateBooking />} />
               <Route path="checkin/:bookingId" element={<Checkin />} />
               <Route path="guest-rooms" element={<GuestRooms />} />
+              <Route path="users" element={<Users />} />
               <Route path="settings" element={<Settings />} />
               <Route path="account" element={<Account />} />
             </Route>
