@@ -2,16 +2,6 @@
 
 Log Area Mess Gwa is a hotel management app designed specifically for log area mess employees to efficiently create and manage bookings. This app provides a dashboard view, bookings management, check-in functionality, and various settings for customization.
 
-## Features
-
-- **Dashboard:** View today's activity and sales chart at a glance.
-- **Bookings Page:** Manage all bookings efficiently with filters and sorting options.
-- **Create-bookings Page:** Create new bookings.
-- **Check-in Page:** Easily check-in guests and manage their details.
-- **Settings:** Customize booking parameters such as minimum nights, minimum and maximum guests per booking, breakfast prices, etc.
-- **Light and Dark Mode:** Supports both light and dark modes for user preference.
-- **User Profile:** Change your name and password securely within the app.
-
 ## Tech Stack
 
 - **Backend Management:** Supabase
@@ -23,6 +13,22 @@ Log Area Mess Gwa is a hotel management app designed specifically for log area m
 - **Icons:** React-Icons
 - **Charting Library:** Recharts
 - **Styling:** Styled-Components
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=vite,html,css,js,react,styledcomponents,sass,supabase" />
+  </a>
+</p>
+
+## Features
+
+- **Dashboard:** View today's activity and sales chart at a glance.
+- **Bookings Page:** Manage all bookings efficiently with filters and sorting options.
+- **Create-bookings Page:** Create new bookings.
+- **Check-in Page:** Easily check-in guests and manage their details.
+- **Settings:** Customize booking parameters such as minimum nights, minimum and maximum guests per booking, breakfast prices, etc.
+- **Light and Dark Mode:** Supports both light and dark modes for user preference.
+- **User Profile:** Change your name and password securely within the app.
 
 ## Separate Create-Booking App
 
